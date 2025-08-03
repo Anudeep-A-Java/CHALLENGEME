@@ -3,7 +3,7 @@ package com.challengeme.backend.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "users")  // MongoDB collection
+@Document(collection = "users")
 public class User {
 
     @Id
@@ -11,16 +11,17 @@ public class User {
 
     private String name;
     private String email;
+    private String password; // Add this field for login
 
-    // Constructors
     public User() {}
 
-    public User(String name, String email) {
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
+        this.password = password;
     }
 
-    // Getters & Setters
+    // Getters and setters
     public String getId() {
         return id;
     }
@@ -43,5 +44,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
